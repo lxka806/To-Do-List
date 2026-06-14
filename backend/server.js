@@ -29,9 +29,23 @@ app.use("/api/leaderboard", leaderboardRoute);
 
 // db connect
 mongoose.connect(process.env.MONGOODB_URL)
-    .then(() => {
-        console.log("MONGODB is connected")
+    .then(async () => {
+        const db = mongoose.connection.db;
+
+        try {
+            const authCollection = db.collection("auths");
+            const indexes = await authCollection.indexes();
+
+            if (indexes.some((index) => index.name === "usernam_1")) {
+                await authCollection.dropIndex("usernam_1");
+                console.log("Dropped stale usernam_1 index from auths collection.");
+            }
+        } catch (indexError) {
+            console.warn("Index cleanup skipped:", indexError.message);
+        }
+
+        console.log("MONGODB is connected");
         app.listen(PORT, () => {
-            console.log("server is running on port", PORT)
-        })
+            console.log("server is running on port", PORT);
+        });
     })

@@ -4,6 +4,7 @@ import Signup from "./pages/Singup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
+import Todos from "./pages/Todos";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/todos" element={<Todos />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />

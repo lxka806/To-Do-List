@@ -1,0 +1,649 @@
+/* Signup.css - Clean White/Blue SaaS Style with WHITE Inputs & Dark Text */
+
+.signup-container {
+    min-height: calc(100vh - 64px);
+    background: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+}
+
+.signup-content {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+@media (max-width: 640px) {
+    .signup-content {
+        padding: 1.5rem;
+    }
+}
+
+/* ==================== PAGE HEADER ==================== */
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.back-home {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.back-home:hover {
+    color: #3b82f6;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* ==================== MESSAGE TOAST ==================== */
+.message-toast {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-toast.success {
+    background: #ecfdf5;
+    color: #10b981;
+    border-left: 4px solid #10b981;
+}
+
+.message-toast.error {
+    background: #fef2f2;
+    color: #ef4444;
+    border-left: 4px solid #ef4444;
+}
+
+/* ==================== SIGNUP CARD ==================== */
+.signup-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 640px) {
+    .signup-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ==================== INPUT STYLES - PURE WHITE BACKGROUND, DARK TEXT ==================== */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    color: #1e293b !important;  /* Dark text color when typing */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.input-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: #ffffff !important;
+    color: #0f172a !important;  /* Even darker on focus */
+}
+
+.input-group input.error {
+    border-color: #ef4444;
+}
+
+.input-group input.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;  /* Lighter gray for placeholder */
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Override any dark background from browser autofill */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    box-shadow: 0 0 0 30px #ffffff inset !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    -webkit-text-fill-color: #1e293b !important;
+    color: #1e293b !important;
+}
+
+/* Password Wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 70px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.toggle-password:hover {
+    background: #f1f5f9;
+    color: #3b82f6;
+}
+
+/* Password Strength */
+.password-strength {
+    margin-top: 0.75rem;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.strength-bar {
+    height: 4px;
+    flex: 1;
+    border-radius: 4px;
+    background: #e2e8f0;
+    transition: all 0.3s;
+}
+
+.strength-bar.active {
+    background: currentColor;
+}
+
+.strength-text {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* Avatar Selection */
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+    .avatar-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+.avatar-option {
+    position: relative;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.avatar-option:hover {
+    transform: translateY(-2px);
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.avatar-option.selected {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.avatar-option img {
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .avatar-option img {
+        max-width: 50px;
+    }
+}
+
+.avatar-check {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit Button */
+.signup-btn {
+    width: 100%;
+    padding: 0.875rem;
+    background: #3b82f6;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.signup-btn:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.signup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Login Prompt */
+.login-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.login-prompt a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .signup-content {
+        padding: 1.5rem;
+    }
+}
+
+/* ==================== PAGE HEADER ==================== */
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.back-home {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.back-home:hover {
+    color: #3b82f6;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* ==================== MESSAGE TOAST ==================== */
+.message-toast {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-toast.success {
+    background: #ecfdf5;
+    color: #10b981;
+    border-left: 4px solid #10b981;
+}
+
+.message-toast.error {
+    background: #fef2f2;
+    color: #ef4444;
+    border-left: 4px solid #ef4444;
+}
+
+/* ==================== SIGNUP CARD ==================== */
+.signup-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 640px) {
+    .signup-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ==================== INPUT STYLES - CLEAN WHITE ==================== */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background-color: red;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    color: #004cff;
+    transition: all 0.2s ease;
+    outline: none;
+    box-shadow: none;
+}
+
+.input-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-group input.error {
+    border-color: #ef4444;
+}
+
+.input-group input.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Password Wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 70px;
+    
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.toggle-password:hover {
+    background: #f1f5f9;
+    color: #3b82f6;
+}
+
+/* Error Message */
+.error-msg {
+    display: block;
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 0.5rem;
+    padding-left: 4px;
+}
+
+/* Password Strength */
+.password-strength {
+    margin-top: 0.75rem;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.strength-bar {
+    height: 4px;
+    flex: 1;
+    border-radius: 4px;
+    background: #e2e8f0;
+    transition: all 0.3s;
+}
+
+.strength-bar.active {
+    background: currentColor;
+}
+
+.strength-text {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* Avatar Selection */
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+    .avatar-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+.avatar-option {
+    position: relative;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.avatar-option:hover {
+    transform: translateY(-2px);
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.avatar-option.selected {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.avatar-option img {
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .avatar-option img {
+        max-width: 50px;
+    }
+}
+
+.avatar-check {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit Button */
+.signup-btn {
+    width: 100%;
+    padding: 0.875rem;
+    background: #3b82f6;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.signup-btn:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.signup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Login Prompt */
+.login-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.login-prompt a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}

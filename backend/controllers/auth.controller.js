@@ -33,6 +33,11 @@ const signup = async (req, res) => {
         });
 
     } catch (err) {
+        if (err.code === 11000) {
+            const duplicateField = Object.keys(err.keyValue)[0] || "field";
+            return res.status(400).json({ message: `${duplicateField.charAt(0).toUpperCase() + duplicateField.slice(1)} already exists` });
+        }
+
         return res.status(500).json({ message: err.message });
     }
 };
