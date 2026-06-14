@@ -1,0 +1,22 @@
+[
+  {
+    "id": "avatar1",
+    "label": "Blue smile",
+    "src": "https://static.thenounproject.com/png/4530368-200.png"
+  },
+  {
+    "id": "avatar2",
+    "label": "Green user",
+    "src": "https://static.thenounproject.com/png/4487819-200.png"
+  },
+  {
+    "id": "avatar3",
+    "label": "Red person",
+    "src": "https://static.thenounproject.com/png/4728467-200.png"
+  },
+  {
+    "id": "avatar4",
+    "label": "Purple icon",
+    "src": "https://static.thenounproject.com/png/4728485-200.png"
+  }
+]

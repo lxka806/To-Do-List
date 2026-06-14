@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Singup";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Leaderboard from "./pages/Leaderboard";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/leaderboard" element={<Leaderboard/>} />
         </Routes>
     </BrowserRouter>
   );

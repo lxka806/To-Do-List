@@ -2,9 +2,12 @@ const List = require("../models/todo.model");
 
 const getTodos = async (req, res) => {
     try {
-        const todos = await List.find({});
+        const todos = await List.find({
+            user: req.user.id,
+        });
 
         return res.status(200).json(todos);
+
     } catch (e) {
         return res.status(500).json({
             message: e.message,
@@ -14,14 +17,14 @@ const getTodos = async (req, res) => {
 
 const createTodo = async (req, res) => {
     try {
-        const { name, color, completed, type } = req.body;
+        const { name, color, type } = req.body;
 
         const newTodo = await List.create({
             name,
             color,
-            completed,
             type,
-            user: req.user.id
+            completed: false,
+            user: req.user.id,
         });
 
         return res.status(201).json(newTodo);
@@ -37,8 +40,11 @@ const updateTodo = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const updatedTodo = await List.findByIdAndUpdate(
-            id,
+        const updatedTodo = await List.findOneAndUpdate(
+            {
+                _id: id,
+                user: req.user.id,
+            },
             req.body,
             { new: true }
         );
@@ -62,7 +68,10 @@ const deleteTodo = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const deletedTodo = await List.findByIdAndDelete(id);
+        const deletedTodo = await List.findOneAndDelete({
+            _id: id,
+            user: req.user.id,
+        });
 
         if (!deletedTodo) {
             return res.status(404).json({
@@ -85,7 +94,10 @@ const toggleTodo = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const todo = await List.findById(id);
+        const todo = await List.findOne({
+            _id: id,
+            user: req.user.id,
+        });
 
         if (!todo) {
             return res.status(404).json({

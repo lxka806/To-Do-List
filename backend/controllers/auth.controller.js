@@ -75,6 +75,57 @@ const login = async (req, res) => {
     }
 };
 
+const getProfile = async (req, res) => {
+    try {
+        const user = await Auth.findById(req.user.id);
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        return res.status(200).json({
+            user: {
+                id: user._id,
+                fullname: user.fullname,
+                email: user.email,
+                avatar: user.avatar,
+                totalTasks: user.totalTasks,
+            },
+        });
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+};
+
+const updateProfile = async (req, res) => {
+    try {
+        const user = await Auth.findById(req.user.id);
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        if (req.body.avatar) {
+            user.avatar = req.body.avatar;
+        }
+
+        await user.save();
+
+        return res.status(200).json({
+            message: "Profile updated successfully",
+            user: {
+                id: user._id,
+                fullname: user.fullname,
+                email: user.email,
+                avatar: user.avatar,
+                totalTasks: user.totalTasks,
+            },
+        });
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+};
+
 // LOGOUT
 const logout = async (req, res) => {
     try {
@@ -93,4 +144,6 @@ module.exports = {
     signup,
     login,
     logout,
+    getProfile,
+    updateProfile,
 };

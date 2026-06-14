@@ -15,6 +15,6 @@ todoRoute.get("/", protect, getTodos);
 todoRoute.post("/", protect, createTodo);
 todoRoute.patch("/:id", protect, updateTodo);
 todoRoute.delete("/:id", protect, deleteTodo);
-todoRoute.put("/:id/toggle", protect, toggleTodo);
+todoRoute.patch("/:id/toggle", protect, toggleTodo);
 
 module.exports = todoRoute
