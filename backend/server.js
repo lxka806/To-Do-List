@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 const authRoute = require("./routers/auth.route");
+const listRoute = require("./routers/todo.route")
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,9 +21,9 @@ app.use(cors());
 
 // routes
 app.use("/api/auth", authRoute);
+app.use("/api/list", listRoute)
 
 // db connect
-
 mongoose.connect(process.env.MONGOODB_URL)
     .then(() => {
         console.log("MONGODB is connected")

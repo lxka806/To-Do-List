@@ -19,8 +19,11 @@ const signup = async (req, res) => {
             password,
         });
 
+        const token = user.signToken();
+
         return res.status(201).json({
             message: "User created successfully",
+            token,
             user: {
                 id: user._id,
                 fullname: user.fullname,
